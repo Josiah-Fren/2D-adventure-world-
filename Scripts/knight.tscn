@@ -264,6 +264,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ii6u"]
+height = 48.0
 
 [sub_resource type="Animation" id="Animation_sgadg"]
 length = 1.6
@@ -535,9 +536,8 @@ script = ExtResource("1_w1gii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p15t3")
-animation = &"jumpdown"
+animation = &"idle"
 autoplay = "idle"
-frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2ii6u")

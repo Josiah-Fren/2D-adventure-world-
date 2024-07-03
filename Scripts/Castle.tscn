@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://80x03jut0h3b"]
+[gd_scene load_steps=6 format=3 uid="uid://80x03jut0h3b"]
 
 [ext_resource type="Texture2D" uid="uid://cs1of5uky8hk1" path="res://Castle/env_objects.png" id="1_c0o5p"]
 [ext_resource type="PackedScene" uid="uid://b1xm0yq7ckdrw" path="res://Scripts/knight.tscn" id="2_ail3c"]
+[ext_resource type="PackedScene" uid="uid://uui5030l06dh" path="res://Scripts/skeleton.tscn" id="3_h08vf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5mgr"]
 texture = ExtResource("1_c0o5p")
@@ -1654,3 +1655,6 @@ position = Vector2(211, -39)
 
 [node name="Camera2D" type="Camera2D" parent="Knight"]
 position = Vector2(-211, 39)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_h08vf")]
+position = Vector2(287, -20)

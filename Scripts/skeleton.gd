@@ -9,6 +9,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 const EXPLOSION = preload("res://Scripts/explosion.tscn")
 
+@onready var animator = $AnimatedSprite2D
+
+
 func die():
 	var new_explosion = EXPLOSION.instantiate()
 	new_explosion.global_position = global_position
@@ -29,7 +32,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 	$AnimatedSprite2D.flip_h = direction > 0
-
+	
+	
 
 func _on_timer_timeout():
 	direction = direction * -1 # Replace with function body.

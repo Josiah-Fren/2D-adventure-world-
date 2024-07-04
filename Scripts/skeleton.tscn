@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://4e5oar75um6x" path="res://Legacy Vania Pack - Village - Update 0.4/Mobs/Skeleton.png" id="2_d7llg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdjcp"]
+radius = 13.0
+height = 52.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ys8mq"]
 atlas = ExtResource("2_d7llg")
@@ -41,7 +43,13 @@ script = ExtResource("1_flhjh")
 shape = SubResource("CapsuleShape2D_sdjcp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -2)
+scale = Vector2(1.375, 1.59375)
 sprite_frames = SubResource("SpriteFrames_s4d40")
 autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

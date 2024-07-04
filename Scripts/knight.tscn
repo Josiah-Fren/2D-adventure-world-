@@ -1,10 +1,43 @@
-[gd_scene load_steps=50 format=3 uid="uid://b1xm0yq7ckdrw"]
+[gd_scene load_steps=59 format=3 uid="uid://b1xm0yq7ckdrw"]
 
 [ext_resource type="Script" path="res://Scripts/knight.gd" id="1_w1gii"]
+[ext_resource type="Texture2D" uid="uid://dj6g0amik3l6p" path="res://Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png" id="2_7im3q"]
 [ext_resource type="Texture2D" uid="uid://bv5qsp22jvsyo" path="res://Legacy-Fantasy - High Forest 2.3/Character/Dead/Dead-Sheet.png" id="2_lr5u0"]
 [ext_resource type="Texture2D" uid="uid://w4plaf5nisbo" path="res://Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="3_o6lij"]
 [ext_resource type="Texture2D" uid="uid://cnd0wh6pdnsf" path="res://Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png" id="5_vb2ow"]
 [ext_resource type="Texture2D" uid="uid://daw03hlmfugjj" path="res://Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png" id="6_gchwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8xob"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4abg"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rai78"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(192, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm7tw"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4sx5"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(384, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng3fg"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(480, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkg3h"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(576, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8mo4"]
+atlas = ExtResource("2_7im3q")
+region = Rect2(672, 0, 96, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1llnl"]
 atlas = ExtResource("2_lr5u0")
@@ -136,6 +169,35 @@ region = Rect2(560, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p15t3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8xob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4abg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rai78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm7tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4sx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng3fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkg3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8mo4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1llnl")
@@ -533,10 +595,14 @@ _data = {
 
 [node name="Knight" type="CharacterBody2D"]
 script = ExtResource("1_w1gii")
+speed = null
+jump_velocity = null
+acceleration = null
+jump = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p15t3")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -546,3 +612,7 @@ shape = SubResource("CapsuleShape2D_2ii6u")
 libraries = {
 "": SubResource("AnimationLibrary_wqf4e")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

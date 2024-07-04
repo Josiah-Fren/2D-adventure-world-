@@ -88,3 +88,10 @@ func _on_hitbox_area_entered(area):
 
 func _on_hitbox_body_entered(body):
 	enemy_checker(body)
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("hurtbox"):
+		body.take_damage()
+	else:
+	pass # Replace with function body.

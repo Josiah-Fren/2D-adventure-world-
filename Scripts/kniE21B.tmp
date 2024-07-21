@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b1xm0yq7ckdrw"]
+[gd_scene load_steps=61 format=3 uid="uid://b1xm0yq7ckdrw"]
 
 [ext_resource type="Script" path="res://Scripts/knight.gd" id="1_w1gii"]
 [ext_resource type="Texture2D" uid="uid://dj6g0amik3l6p" path="res://Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png" id="2_7im3q"]
@@ -439,18 +439,6 @@ tracks/1/keys = {
 "update": 1,
 "values": ["attack"]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:attacking")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_sgadg"]
 length = 1.6
@@ -636,11 +624,12 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_logtt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_inccx"]
-radius = 15.0333
-
 [node name="Knight" type="CharacterBody2D"]
 script = ExtResource("1_w1gii")
+speed = null
+jump_velocity = null
+acceleration = null
+jump = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p15t3")
@@ -659,10 +648,3 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_logtt")
-
-[node name="Attackarea" type="Area2D" parent="."]
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attackarea"]
-position = Vector2(16, 1)
-shape = SubResource("CircleShape2D_inccx")

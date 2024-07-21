@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var jump_velocity = -400.0
 @export var acceleration : float = 15.0
 @export var jump = 1
+@export var attacking = false
+
 
 enum state {IDLE, RUNNING, JUMPUP, JUMPDOWN, HURT}
 
@@ -16,6 +18,10 @@ var  anim_state = state.IDLE
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var start_pos = global_position
+
+func _process(delta):
+	if Input.is_action_just_pressed("attack"):
+		attack()
 
 func reset():
 	global_position = start_pos
@@ -37,8 +43,9 @@ func update_state():
 			anim_state = state.JUMPDOWN
 
 func update_animation(direction):
-	if  direction > 0:
-		animator.flip_h = false
+	if !attacking:
+		if  direction > 0:
+			animator.flip_h = false
 	elif direction < 0:
 		animator.flip_h = true
 	match anim_state:
@@ -53,11 +60,19 @@ func update_animation(direction):
 		state.HURT:
 			animation_player.play("hurt")
 
+func attack():
+	var overlapping_objects = $Attackarea.get_overlapping_areas()
+	for area in overlapping_objects:
+		var parent = area.get_parent()
+		print(parent.name)
+	attacking = true
+	animation_player.play("Attack")
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -93,5 +108,7 @@ func _on_hitbox_body_entered(body):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("hurtbox"):
 		body.take_damage()
-	else:
-	pass # Replace with function body.
+
+
+
+

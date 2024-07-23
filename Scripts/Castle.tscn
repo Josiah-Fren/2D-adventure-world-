@@ -1652,10 +1652,6 @@ layer_0/tile_data = PackedInt32Array(131071, 983040, 31, 65536, 1048576, 31, 655
 
 [node name="Knight" parent="." instance=ExtResource("2_ail3c")]
 position = Vector2(225, -8)
-speed = 300.0
-jump_velocity = -400.0
-acceleration = 15.0
-jump = 1
 
 [node name="Camera2D" type="Camera2D" parent="Knight"]
 position = Vector2(-211, 39)

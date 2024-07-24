@@ -53,6 +53,8 @@ func attack():
 		print(parent.name)
 	attacking = true
 	anim_state = state.ATTACK
+	update_state()
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -63,6 +65,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("attack"):
 		attack()
 		animation_player.play("attack")
+		anim_state = state.ATTACK
+		update_state()
+	
+	
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -75,6 +81,7 @@ func _process(delta):
 		velocity.x = move_toward(velocity.x,direction*speed,acceleration)
 	else:
 		velocity.x = move_toward(velocity.x, 0, acceleration)
+		
 	update_state()
 	update_animation(direction)
 	move_and_slide()

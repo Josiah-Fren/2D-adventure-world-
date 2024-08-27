@@ -1,15 +1,15 @@
 [gd_scene load_steps=16 format=3 uid="uid://b2edg7csyo5bs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/checkpoint.gd" id="1_1xfhh"]
-[ext_resource type="Texture2D" uid="uid://dtjgpu40iphli" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="1_1xkm8"]
-[ext_resource type="Texture2D" uid="uid://bw78lngyl3u6k" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="2_sebmx"]
-[ext_resource type="Texture2D" uid="uid://ce4jkkgoe1vpr" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="3_nf1es"]
-[ext_resource type="Texture2D" uid="uid://dvxyamgmbyu3q" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 04.png" id="4_oi33b"]
-[ext_resource type="Texture2D" uid="uid://dpt4raawou606" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 05.png" id="5_x1s7r"]
-[ext_resource type="Texture2D" uid="uid://bepppuspb6yhr" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 06.png" id="6_cx4pg"]
-[ext_resource type="Texture2D" uid="uid://cu88spxww1h7" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 07.png" id="7_bjluu"]
-[ext_resource type="Texture2D" uid="uid://ca34k5nf6l5tv" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 08.png" id="8_cpsfb"]
-[ext_resource type="Texture2D" uid="uid://c2n25qx0fhkta" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 09.png" id="9_ydkt2"]
+[ext_resource type="Texture2D" uid="uid://biofjewrr7kbp" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="2_lvdxd"]
+[ext_resource type="Texture2D" uid="uid://d0fc3jup1tdc6" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="3_rp3yw"]
+[ext_resource type="Texture2D" uid="uid://bppi8id62q680" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="4_3arlx"]
+[ext_resource type="Texture2D" uid="uid://ba0jjidf1f8hb" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 04.png" id="5_uul47"]
+[ext_resource type="Texture2D" uid="uid://bkuabhlrj1krv" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 05.png" id="6_jc1n6"]
+[ext_resource type="Texture2D" uid="uid://tbc6gbmbpwko" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 06.png" id="7_wsyyl"]
+[ext_resource type="Texture2D" uid="uid://b7i7g650mfsf3" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 07.png" id="8_gj2qt"]
+[ext_resource type="Texture2D" uid="uid://ceev5vn0jj4fp" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 08.png" id="9_54oij"]
+[ext_resource type="Texture2D" uid="uid://doda3nt21ikhx" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 09.png" id="10_rg52m"]
 
 [sub_resource type="Animation" id="Animation_kle43"]
 resource_name = "Activated"
@@ -49,7 +49,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.0333333, 0.1, 0.166667, 0.233333, 0.3, 0.366667, 0.433333, 0.5, 0.566667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_1xkm8"), ExtResource("2_sebmx"), ExtResource("3_nf1es"), ExtResource("4_oi33b"), ExtResource("5_x1s7r"), ExtResource("6_cx4pg"), ExtResource("7_bjluu"), ExtResource("8_cpsfb"), ExtResource("9_ydkt2")]
+"values": [null, null, null, null, null, null, null, null, null]
 }
 
 [sub_resource type="Animation" id="Animation_iltgr"]
@@ -77,31 +77,31 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_1xkm8")
+"texture": ExtResource("2_lvdxd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_sebmx")
+"texture": ExtResource("3_rp3yw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_nf1es")
+"texture": ExtResource("4_3arlx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_oi33b")
+"texture": ExtResource("5_uul47")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_x1s7r")
+"texture": ExtResource("6_jc1n6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_cx4pg")
+"texture": ExtResource("7_wsyyl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_bjluu")
+"texture": ExtResource("8_gj2qt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_cpsfb")
+"texture": ExtResource("9_54oij")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_ydkt2")
+"texture": ExtResource("10_rg52m")
 }],
 "loop": true,
 "name": &"Activated",

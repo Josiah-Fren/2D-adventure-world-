@@ -2,6 +2,9 @@ extends CharacterBody2D
 class_name Archer
 
 
+var a
+@onready var  arrow = preload("res://Scripts/UI/arrow.tscn")
+
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprites
 
@@ -10,12 +13,25 @@ class_name Archer
 
 @export var attacking = false
 
+
+
 func _ready():
 	GameManager.player = self
+
+func shoot():
+		a = arrow.instance()
+		add_child(a)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _process(delta):
+	if Input.is_action_just_pressed("attack"):
+		attack()
+		a = arrow.instantiate()
+		add_sibling(a)
+		a.global_position = global_position
+		print(attack)
 
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
@@ -39,23 +55,28 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 	update_animation()
 	move_and_slide()
-
-
-
-	
 	if position.y >=2000:
 		die()
+		
+func attack():
+	attacking = true
+	animation.play("Attack")
+	update_animation()
+
+
+
 
 func update_animation():
-	if velocity.x != 0:
-		animation.play("Run")
-	else:
-		animation.play("Idle")
-	
-	if velocity.y < 0:
-		animation.play("Jump")
-	if velocity.y > 0:
-		animation.play("Fall")
+	if !attacking:
+		if velocity.x != 0:
+			animation.play("Run")
+		else:
+			animation.play("Idle")
+		
+		if velocity.y < 0:
+			animation.play("Jump")
+		if velocity.y > 0:
+			animation.play("Fall")
 
 
 func die():

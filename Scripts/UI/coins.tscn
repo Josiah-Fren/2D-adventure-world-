@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dv4t72pp3eaap"]
 
 [ext_resource type="Script" path="res://Scripts/UI/coins.gd" id="1_anrwi"]
-[ext_resource type="Texture2D" uid="uid://b7fbbph4ordkg" path="res://Treasure Hunters (1)/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="1_eomd8"]
-[ext_resource type="Texture2D" uid="uid://d3815ea6med8h" path="res://Treasure Hunters (1)/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="2_xrc17"]
-[ext_resource type="Texture2D" uid="uid://cdj6wu3c2xcpb" path="res://Treasure Hunters (1)/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="3_3c5cb"]
-[ext_resource type="Texture2D" uid="uid://ba8h852o1h2al" path="res://Treasure Hunters (1)/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="4_0h1iu"]
+[ext_resource type="Texture2D" uid="uid://b7fbbph4ordkg" path="res://Sprites/Gold Coin/01.png" id="1_eomd8"]
+[ext_resource type="Texture2D" uid="uid://d3815ea6med8h" path="res://Sprites/Gold Coin/02.png" id="2_xrc17"]
+[ext_resource type="Texture2D" uid="uid://cdj6wu3c2xcpb" path="res://Sprites/Gold Coin/03.png" id="3_3c5cb"]
+[ext_resource type="Texture2D" uid="uid://ba8h852o1h2al" path="res://Sprites/Gold Coin/04.png" id="4_0h1iu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6m1au"]
 radius = 6.08276

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Skeleton
+
 var direction = 1
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -39,3 +41,7 @@ func _on_timer_timeout():
 func _on_hitbox_area_entered(area):
 	if area.get_parent ("res://Scenes/player.tscn"):
 		area.get_parent().die()
+
+
+func _on_area_2d_area_entered(area):
+	queue_free()

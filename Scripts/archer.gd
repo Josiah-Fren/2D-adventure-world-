@@ -31,8 +31,9 @@ func _process(delta):
 		a = arrow.instantiate()
 		add_sibling(a)
 		a.global_position = global_position
+		a.direction = sprite.scale.x
 		print(attack)
-
+		
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		sprite.scale.x =abs(sprite.scale.x) * -1

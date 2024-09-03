@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Coins
 func _ready():
 	$AnimationPlayer.play("Idle")
 	

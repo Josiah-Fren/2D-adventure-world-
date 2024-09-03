@@ -37,11 +37,13 @@ func _on_timer_timeout():
 
 
 
-
-func _on_hitbox_area_entered(area):
-	if area.get_parent ("res://Scenes/player.tscn"):
-		area.get_parent().die()
-
-
-func _on_area_2d_area_entered(area):
+func die():
 	queue_free()
+
+
+
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.get_parent() is Archer:
+		area.get_parent().die()

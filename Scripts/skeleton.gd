@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 class_name Skeleton
-
+@onready var animation = $AnimationPlayer
 var direction = 1
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -37,13 +37,15 @@ func _on_timer_timeout():
 
 
 
+
 func die():
 	queue_free()
 
 
-
-
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Archer:
-		area.get_parent().die()
+		area.get_parent().take_damage(1)
+	if area.get_parent() is Arrow:
+		$AnimationPlayer.play("Die")
+		await animator.animation_finished
+		die()

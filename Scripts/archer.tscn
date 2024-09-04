@@ -732,7 +732,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_libli"]
 size = Vector2(22, 46)
 
-[node name="Archer" type="CharacterBody2D"]
+[node name="Archer" type="CharacterBody2D" groups=["Heroes"]]
 script = ExtResource("1_3fr6u")
 attacking = null
 

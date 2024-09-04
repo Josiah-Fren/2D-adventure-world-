@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://uui5030l06dh"]
+[gd_scene load_steps=17 format=3 uid="uid://uui5030l06dh"]
 
 [ext_resource type="Script" path="res://Scripts/skeleton.gd" id="1_flhjh"]
 [ext_resource type="Texture2D" uid="uid://4e5oar75um6x" path="res://Legacy Vania Pack - Village - Update 0.4/Mobs/Skeleton.png" id="2_d7llg"]
@@ -6,6 +6,22 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdjcp"]
 radius = 13.0
 height = 52.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmp5g"]
+atlas = ExtResource("2_d7llg")
+region = Rect2(0, 42, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dtut"]
+atlas = ExtResource("2_d7llg")
+region = Rect2(32, 42, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erqfq"]
+atlas = ExtResource("2_d7llg")
+region = Rect2(64, 42, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67ay5"]
+atlas = ExtResource("2_d7llg")
+region = Rect2(0, 84, 96, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ys8mq"]
 atlas = ExtResource("2_d7llg")
@@ -23,6 +39,23 @@ region = Rect2(64, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nmp5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dtut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67ay5")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ys8mq")
 }, {
 "duration": 1.0,
@@ -32,13 +65,89 @@ animations = [{
 "texture": SubResource("AtlasTexture_5gisv")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ah643"]
 radius = 15.0
 height = 54.0
+
+[sub_resource type="Animation" id="Animation_w22v4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Die"]
+}
+
+[sub_resource type="Animation" id="Animation_ruklb"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Die", &"Die"]
+}
+
+[sub_resource type="Animation" id="Animation_tss3h"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Idle"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mxnd"]
+_data = {
+"Die": SubResource("Animation_ruklb"),
+"Idle": SubResource("Animation_tss3h"),
+"RESET": SubResource("Animation_w22v4")
+}
 
 [node name="skeleton" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
@@ -47,11 +156,12 @@ script = ExtResource("1_flhjh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sdjcp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Enemies"]]
 position = Vector2(4.76837e-07, -2)
 scale = Vector2(1.375, 1.59375)
 sprite_frames = SubResource("SpriteFrames_s4d40")
-autoplay = "default"
+animation = &"Die"
+autoplay = "Idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
@@ -61,6 +171,11 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["Enemies"]]
 shape = SubResource("CapsuleShape2D_ah643")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7mxnd")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

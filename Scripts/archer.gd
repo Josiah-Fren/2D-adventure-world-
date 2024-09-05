@@ -12,7 +12,7 @@ var a
 @export var jump_height = -400.0
 
 @export var attacking = false
-
+@export var death = false
 var max_health = 2
 var health = 0
 var can_take_damage = true
@@ -72,16 +72,16 @@ func attack():
 
 
 func update_animation():
-	if !attacking:
-		if velocity.x != 0:
-			animation.play("Run")
-		else:
-			animation.play("Idle")
-		
-		if velocity.y < 0:
-			animation.play("Jump")
-		if velocity.y > 0:
-			animation.play("Fall")
+	if !death:
+		if !attacking:
+			if velocity.x != 0:
+				animation.play("Run")
+			else:
+				animation.play("Idle")
+			if velocity.y < 0:
+				animation.play("Jump")
+			if velocity.y > 0:
+				animation.play("Fall")
 
 func take_damage(damage_amount : int):
 	if can_take_damage:
@@ -101,4 +101,8 @@ func iframes():
 
 
 func die():
+	death = true
+	$AnimationPlayer.play("death")
+	await animation.animation_finished
 	GameManager.respawn_player()
+	

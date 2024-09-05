@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1e884xerjofc"]
+[gd_scene load_steps=14 format=3 uid="uid://d1e884xerjofc"]
 
 [ext_resource type="Texture2D" uid="uid://cbbecnrc0tg3y" path="res://oak_woods_v1.0/oak_woods_tileset.png" id="1_h424i"]
 [ext_resource type="Texture2D" uid="uid://4sd30jvugyt5" path="res://oak_woods_v1.0/background/background_layer_1.png" id="2_2dcfo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://biwdiwinrvkef" path="res://Scripts/UI/spikes.tscn" id="9_gb2nk"]
 [ext_resource type="Script" path="res://Scripts/Core/ui_manager.gd" id="9_iovmw"]
 [ext_resource type="Texture2D" uid="uid://b7fbbph4ordkg" path="res://Sprites/Gold Coin/01.png" id="9_yecoy"]
+[ext_resource type="PackedScene" uid="uid://bfbes8owqepj8" path="res://Scripts/UI/health_up.tscn" id="11_x58k0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrtvl"]
 texture = ExtResource("1_h424i")
@@ -649,3 +650,6 @@ position = Vector2(6217, -53)
 
 [node name="Coin44" parent="." instance=ExtResource("7_ygcdx")]
 position = Vector2(6329, -100)
+
+[node name="HealthUp" parent="." instance=ExtResource("11_x58k0")]
+position = Vector2(2082, 147)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://uui5030l06dh"]
+[gd_scene load_steps=18 format=3 uid="uid://uui5030l06dh"]
 
 [ext_resource type="Script" path="res://Scripts/skeleton.gd" id="1_flhjh"]
 [ext_resource type="Texture2D" uid="uid://4e5oar75um6x" path="res://Legacy Vania Pack - Village - Update 0.4/Mobs/Skeleton.png" id="2_d7llg"]
+[ext_resource type="PackedScene" uid="uid://8wxaa1a3rhb4" path="res://Scripts/Core/healthbar.tscn" id="3_nff5n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdjcp"]
 radius = 13.0
@@ -73,21 +74,6 @@ animations = [{
 radius = 15.0
 height = 54.0
 
-[sub_resource type="Animation" id="Animation_w22v4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Die"]
-}
-
 [sub_resource type="Animation" id="Animation_ruklb"]
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -142,6 +128,21 @@ tracks/1/keys = {
 "values": ["Idle"]
 }
 
+[sub_resource type="Animation" id="Animation_w22v4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Die"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7mxnd"]
 _data = {
 "Die": SubResource("Animation_ruklb"),
@@ -176,6 +177,12 @@ shape = SubResource("CapsuleShape2D_ah643")
 libraries = {
 "": SubResource("AnimationLibrary_7mxnd")
 }
+
+[node name="Healthbar" parent="." instance=ExtResource("3_nff5n")]
+offset_left = -9.0
+offset_top = -25.0
+offset_right = -9.0
+offset_bottom = -25.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

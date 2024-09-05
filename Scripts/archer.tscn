@@ -276,7 +276,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qjfiw")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }]
@@ -417,6 +417,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [null]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"death"]
+}
 
 [sub_resource type="Animation" id="Animation_gpdsv"]
 length = 1.6
@@ -488,7 +500,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4wh2l"]
 length = 1.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -508,10 +519,10 @@ tracks/1/path = NodePath("Sprites:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.53333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": ["death"]
+"values": ["death", &"death"]
 }
 
 [sub_resource type="Animation" id="Animation_ty30i"]
@@ -741,7 +752,7 @@ shape = SubResource("CapsuleShape2D_wufbq")
 
 [node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_84etk")
-animation = &"Attack"
+animation = &"death"
 autoplay = "Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

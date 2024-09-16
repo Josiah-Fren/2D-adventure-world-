@@ -72,16 +72,15 @@ func attack():
 
 
 func update_animation():
-	if !death:
-		if !attacking:
-			if velocity.x != 0:
-				animation.play("Run")
-			else:
-				animation.play("Idle")
-			if velocity.y < 0:
-				animation.play("Jump")
-			if velocity.y > 0:
-				animation.play("Fall")
+	if !attacking:
+		if velocity.x != 0:
+			animation.play("Run")
+		else:
+			animation.play("Idle")
+		if velocity.y < 0:
+			animation.play("Jump")
+		if velocity.y > 0:
+			animation.play("Fall")
 
 func take_damage(damage_amount : int):
 	if can_take_damage:
@@ -102,7 +101,5 @@ func iframes():
 
 func die():
 	death = true
-	$AnimationPlayer.play("death")
-	await animation.animation_finished
 	GameManager.respawn_player()
 	

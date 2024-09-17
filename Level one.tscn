@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1e884xerjofc"]
+[gd_scene load_steps=15 format=3 uid="uid://d1e884xerjofc"]
 
 [ext_resource type="Texture2D" uid="uid://cbbecnrc0tg3y" path="res://oak_woods_v1.0/oak_woods_tileset.png" id="1_h424i"]
 [ext_resource type="Texture2D" uid="uid://4sd30jvugyt5" path="res://oak_woods_v1.0/background/background_layer_1.png" id="2_2dcfo"]
 [ext_resource type="PackedScene" uid="uid://b2edg7csyo5bs" path="res://Scripts/UI/checkpoint.tscn" id="2_ulodt"]
+[ext_resource type="Texture2D" uid="uid://b6heko5828grt" path="res://oak_woods_v1.0/background/background_layer_3.png" id="3_n0lqt"]
 [ext_resource type="Texture2D" uid="uid://drot8ff5goqpy" path="res://oak_woods_v1.0/background/background_layer_2.png" id="3_oadvk"]
 [ext_resource type="PackedScene" uid="uid://rhlyl1fj76nv" path="res://Scripts/archer.tscn" id="3_w7oyt"]
 [ext_resource type="PackedScene" uid="uid://uui5030l06dh" path="res://Scripts/skeleton.tscn" id="6_7xibp"]
@@ -462,11 +463,6 @@ sources/1 = SubResource("TileSetAtlasSource_qrtvl")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="archer" parent="." instance=ExtResource("3_w7oyt")]
-position = Vector2(240, -28)
-
-[node name="Camera2D" type="Camera2D" parent="archer"]
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -479,6 +475,7 @@ offset_bottom = 180.0
 scale = Vector2(4, 4)
 texture = ExtResource("2_2dcfo")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
@@ -492,6 +489,25 @@ offset_bottom = 180.0
 scale = Vector2(4, 4)
 texture = ExtResource("3_oadvk")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_scale = Vector2(0.7, 0)
+motion_mirroring = Vector2(3320, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground3/ParallaxLayer"]
+offset_right = 862.0
+offset_bottom = 180.0
+scale = Vector2(4, 4)
+texture = ExtResource("3_n0lqt")
+stretch_mode = 1
+
+[node name="archer" parent="." instance=ExtResource("3_w7oyt")]
+position = Vector2(240, -28)
+
+[node name="Camera2D" type="Camera2D" parent="archer"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lyc8p")
@@ -565,12 +581,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CoinDisplay" type="Label" parent="UIManager"]
 offset_left = 48.0
-offset_top = 15.0
+offset_top = 16.0
 offset_right = 88.0
-offset_bottom = 49.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_font_sizes/font_size = 24
-text = "0"
+text = "0 "
 metadata/_edit_use_anchors_ = true
 
 [node name="Coin19" parent="." instance=ExtResource("7_ygcdx")]

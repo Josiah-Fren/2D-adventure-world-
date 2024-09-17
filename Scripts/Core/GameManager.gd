@@ -17,3 +17,5 @@ func gain_coins(coins_gained:int):
 	coins += coins_gained
 	emit_signal("gained_coins")
 	prints(coins)
+	if coins >= 50:
+		get_tree().change_scene_to_file("res://Scripts/Core/win_sreen.tscn")

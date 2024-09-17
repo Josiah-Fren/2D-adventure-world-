@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddgfv7p7fuhrm"]
+[gd_scene load_steps=3 format=3 uid="uid://ddgfv7p7fuhrm"]
 
 [ext_resource type="Script" path="res://Scripts/Core/menu.gd" id="1_pdule"]
+[ext_resource type="Texture2D" uid="uid://dhsai5i3wqv60" path="res://MENU.png" id="2_sbfww"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pdule")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1177.0
+offset_bottom = 658.0
+texture = ExtResource("2_sbfww")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 2
+offset_left = 507.0
+offset_top = 209.0
+offset_right = 649.0
+offset_bottom = 244.0
+text = "LEGACY RUNNER"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,11 +53,6 @@ text = "PLAY"
 layout_mode = 2
 text = "QUIT
 "
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

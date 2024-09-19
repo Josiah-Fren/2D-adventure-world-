@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnek08mt27pp6"]
+[gd_scene load_steps=8 format=3 uid="uid://cnek08mt27pp6"]
 
 [ext_resource type="Texture2D" uid="uid://8mf21r52jan1" path="res://arrow/fire arrow.png" id="1_88vnk"]
 [ext_resource type="Script" path="res://Scripts/UI/Arrow.gd" id="2_laot3"]
+[ext_resource type="AudioStream" uid="uid://do3lgfkdfmv4n" path="res://arrow-002-41178.mp3" id="2_wqgrk"]
 
 [sub_resource type="Animation" id="Animation_aanew"]
 length = 0.2
@@ -53,6 +54,11 @@ animations = [{
 [node name="Arrow" type="Node2D"]
 position = Vector2(56, 0)
 script = ExtResource("2_laot3")
+
+[node name="Arrow-002-41178" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wqgrk")
+volume_db = 20.0
+autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

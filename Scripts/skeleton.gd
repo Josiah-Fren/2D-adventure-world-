@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 class_name Skeleton
 @onready var animation = $AnimationPlayer
+@onready var death_sound: AudioStreamPlayer2D = $"Death sound"
+
+
 var direction = 1
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -46,6 +49,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Archer:
 		area.get_parent().take_damage(1)
 	if area.get_parent() is Arrow:
+		death_sound.play()
 		$AnimationPlayer.play("Die")
 		await animator.animation_finished
 		die()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://rhlyl1fj76nv"]
+[gd_scene load_steps=61 format=3 uid="uid://rhlyl1fj76nv"]
 
 [ext_resource type="Script" path="res://Scripts/archer.gd" id="1_3fr6u"]
+[ext_resource type="AudioStream" uid="uid://byy1krpmot02r" path="res://footsteps_grass_1-6810.mp3" id="2_7c1qm"]
 [ext_resource type="Texture2D" uid="uid://dlfkk7dt7ummp" path="res://Final/Final/Idle and running.png" id="2_78gu5"]
 [ext_resource type="Texture2D" uid="uid://cag8yay8j8tlk" path="res://Final/Final/death.png" id="2_snkia"]
+[ext_resource type="AudioStream" uid="uid://cqjme340fgmyd" path="res://pixel-sound-effect-4-82881.mp3" id="3_o1wt2"]
 [ext_resource type="Texture2D" uid="uid://dskd2e8cymp6d" path="res://Final/Final/Normal Attack.png" id="3_plxah"]
 [ext_resource type="Texture2D" uid="uid://bqxi3efe55w0k" path="res://Final/Final/Jumping.png" id="4_cccl3"]
 
@@ -746,6 +748,14 @@ size = Vector2(22, 46)
 [node name="Archer" type="CharacterBody2D" groups=["Heroes"]]
 script = ExtResource("1_3fr6u")
 attacking = null
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7c1qm")
+volume_db = 20.0
+
+[node name="Jumping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_o1wt2")
+volume_db = 15.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wufbq")

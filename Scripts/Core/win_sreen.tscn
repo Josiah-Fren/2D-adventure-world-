@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://fstrb0wu0q6h"]
+[gd_scene load_steps=4 format=3 uid="uid://fstrb0wu0q6h"]
 
 [ext_resource type="Script" path="res://Scripts/Core/win_sreen.gd" id="1_utar7"]
+[ext_resource type="AudioStream" uid="uid://drhxnata0anh" path="res://fantasy-medieval-ambient-237371.mp3" id="2_7163f"]
 [ext_resource type="Texture2D" uid="uid://djq7w3niona8y" path="res://anna.png" id="2_obf6y"]
 
 [node name="WinSreen" type="Node2D"]
 script = ExtResource("1_utar7")
+
+[node name="Fantasy-medieval-ambient-237371" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7163f")
+autoplay = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -132.0
@@ -48,7 +53,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "PlLAY AGAIN	"
+text = "PLAY AGAIN	"
 
 [node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2

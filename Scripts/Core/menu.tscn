@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddgfv7p7fuhrm"]
+[gd_scene load_steps=4 format=3 uid="uid://ddgfv7p7fuhrm"]
 
 [ext_resource type="Script" path="res://Scripts/Core/menu.gd" id="1_pdule"]
+[ext_resource type="AudioStream" uid="uid://trahkvehdo5i" path="res://medieval-ambient-236809.mp3" id="2_rhg1l"]
 [ext_resource type="Texture2D" uid="uid://dhsai5i3wqv60" path="res://MENU.png" id="2_sbfww"]
 
 [node name="Menu" type="Control"]
@@ -11,6 +12,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pdule")
+
+[node name="Medieval-ambient-236809" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rhg1l")
+autoplay = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

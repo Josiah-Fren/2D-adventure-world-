@@ -4,6 +4,9 @@ class_name Archer
 
 var a
 @onready var  arrow = preload("res://Scripts/UI/arrow.tscn")
+@onready var jumping: AudioStreamPlayer2D = $Jumping
+@onready var footsteps: AudioStreamPlayer2D = $Footsteps
+
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprites
@@ -41,8 +44,10 @@ func _process(delta):
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		sprite.scale.x =abs(sprite.scale.x) * -1
+
 	if Input.is_action_pressed("right"):
 		sprite.scale.x =abs(sprite.scale.x) 
+
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -50,6 +55,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_height
+		jumping.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

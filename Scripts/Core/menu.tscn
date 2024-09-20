@@ -25,11 +25,11 @@ texture = ExtResource("2_sbfww")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 2
-offset_left = 507.0
+offset_left = 515.0
 offset_top = 209.0
-offset_right = 649.0
-offset_bottom = 244.0
-text = "LEGACY RUNNER"
+offset_right = 635.0
+offset_bottom = 245.0
+text = "COIN RUNNER"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

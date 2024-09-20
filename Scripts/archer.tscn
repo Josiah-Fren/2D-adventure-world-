@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://rhlyl1fj76nv"]
+[gd_scene load_steps=62 format=3 uid="uid://rhlyl1fj76nv"]
 
 [ext_resource type="Script" path="res://Scripts/archer.gd" id="1_3fr6u"]
 [ext_resource type="AudioStream" uid="uid://byy1krpmot02r" path="res://footsteps_grass_1-6810.mp3" id="2_7c1qm"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cqjme340fgmyd" path="res://pixel-sound-effect-4-82881.mp3" id="3_o1wt2"]
 [ext_resource type="Texture2D" uid="uid://dskd2e8cymp6d" path="res://Final/Final/Normal Attack.png" id="3_plxah"]
 [ext_resource type="Texture2D" uid="uid://bqxi3efe55w0k" path="res://Final/Final/Jumping.png" id="4_cccl3"]
+[ext_resource type="AudioStream" uid="uid://bkyiifu0a15ev" path="res://retro-coin-4-236671.mp3" id="8_w6r3e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wufbq"]
 radius = 11.0
@@ -774,5 +775,9 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_libli")
+
+[node name="Collectedsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_w6r3e")
+volume_db = 24.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

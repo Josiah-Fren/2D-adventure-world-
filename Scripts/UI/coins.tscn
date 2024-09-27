@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv4t72pp3eaap"]
+[gd_scene load_steps=11 format=3 uid="uid://dv4t72pp3eaap"]
 
 [ext_resource type="Script" path="res://Scripts/UI/coins.gd" id="1_anrwi"]
 [ext_resource type="Texture2D" uid="uid://b7fbbph4ordkg" path="res://Sprites/Gold Coin/01.png" id="1_eomd8"]
 [ext_resource type="Texture2D" uid="uid://d3815ea6med8h" path="res://Sprites/Gold Coin/02.png" id="2_xrc17"]
 [ext_resource type="Texture2D" uid="uid://cdj6wu3c2xcpb" path="res://Sprites/Gold Coin/03.png" id="3_3c5cb"]
 [ext_resource type="Texture2D" uid="uid://ba8h852o1h2al" path="res://Sprites/Gold Coin/04.png" id="4_0h1iu"]
+[ext_resource type="AudioStream" uid="uid://bkyiifu0a15ev" path="res://retro-coin-4-236671.mp3" id="6_f76dw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6m1au"]
 radius = 6.08276
@@ -78,5 +79,9 @@ animation = &"Idle"
 libraries = {
 "": SubResource("AnimationLibrary_esv58")
 }
+
+[node name="Collectedsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_f76dw")
+volume_db = 24.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

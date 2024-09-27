@@ -1,15 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2edg7csyo5bs"]
+[gd_scene load_steps=17 format=3 uid="uid://b2edg7csyo5bs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/checkpoint.gd" id="1_1xfhh"]
-[ext_resource type="Texture2D" uid="uid://biofjewrr7kbp" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="2_lvdxd"]
-[ext_resource type="Texture2D" uid="uid://d0fc3jup1tdc6" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="3_rp3yw"]
-[ext_resource type="Texture2D" uid="uid://bppi8id62q680" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="4_3arlx"]
-[ext_resource type="Texture2D" uid="uid://ba0jjidf1f8hb" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 04.png" id="5_uul47"]
-[ext_resource type="Texture2D" uid="uid://bkuabhlrj1krv" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 05.png" id="6_jc1n6"]
-[ext_resource type="Texture2D" uid="uid://tbc6gbmbpwko" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 06.png" id="7_wsyyl"]
-[ext_resource type="Texture2D" uid="uid://b7i7g650mfsf3" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 07.png" id="8_gj2qt"]
-[ext_resource type="Texture2D" uid="uid://ceev5vn0jj4fp" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 08.png" id="9_54oij"]
-[ext_resource type="Texture2D" uid="uid://doda3nt21ikhx" path="res://Treasure Hunters (1)/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 09.png" id="10_rg52m"]
+[ext_resource type="Texture2D" uid="uid://dboxumxkgxs7" path="res://Flag/Flag 01.png" id="2_etoag"]
+[ext_resource type="AudioStream" uid="uid://da10khnrvuddh" path="res://cute-level-up-1-189852.mp3" id="2_qlcmk"]
+[ext_resource type="Texture2D" uid="uid://cqm5xmpnx54pk" path="res://Flag/Flag 02.png" id="3_idi5h"]
+[ext_resource type="Texture2D" uid="uid://cvt8ru5pl62g2" path="res://Flag/Flag 03.png" id="4_ceehi"]
+[ext_resource type="Texture2D" uid="uid://vyx41ni0sf4a" path="res://Flag/Flag 04.png" id="5_w40e4"]
+[ext_resource type="Texture2D" uid="uid://b6aibwe8ct1ss" path="res://Flag/Flag 05.png" id="6_laexd"]
+[ext_resource type="Texture2D" uid="uid://fig3bfk83d2t" path="res://Flag/Flag 06.png" id="7_xsp3y"]
+[ext_resource type="Texture2D" uid="uid://bcji560srunym" path="res://Flag/Flag 07.png" id="8_gnrqs"]
+[ext_resource type="Texture2D" uid="uid://dl1jcegdiro01" path="res://Flag/Flag 08.png" id="9_8de3r"]
+[ext_resource type="Texture2D" uid="uid://blpu1lks1cofl" path="res://Flag/Flag 09.png" id="10_01job"]
 
 [sub_resource type="Animation" id="Animation_kle43"]
 resource_name = "Activated"
@@ -77,31 +78,31 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lvdxd")
+"texture": ExtResource("2_etoag")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_rp3yw")
+"texture": ExtResource("3_idi5h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3arlx")
+"texture": ExtResource("4_ceehi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_uul47")
+"texture": ExtResource("5_w40e4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_jc1n6")
+"texture": ExtResource("6_laexd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_wsyyl")
+"texture": ExtResource("7_xsp3y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_gj2qt")
+"texture": ExtResource("8_gnrqs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_54oij")
+"texture": ExtResource("9_8de3r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_rg52m")
+"texture": ExtResource("10_01job")
 }],
 "loop": true,
 "name": &"Activated",
@@ -113,6 +114,10 @@ size = Vector2(37, 94)
 
 [node name="Checkpoint" type="Node2D"]
 script = ExtResource("1_1xfhh")
+
+[node name="ActivatedCP" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qlcmk")
+volume_db = 11.685
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

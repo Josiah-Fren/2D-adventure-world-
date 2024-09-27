@@ -4,6 +4,9 @@ class_name Archer
 
 var a
 @onready var  arrow = preload("res://Scripts/UI/arrow.tscn")
+@onready var jumping: AudioStreamPlayer2D = $Jumping
+@onready var footsteps: AudioStreamPlayer2D = $Footsteps
+
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprites
@@ -12,10 +15,14 @@ var a
 @export var jump_height = -400.0
 
 @export var attacking = false
-
+@export var death = false
+var max_health = 2
+var health = 0
+var can_take_damage = true
 
 
 func _ready():
+	health = max_health
 	GameManager.player = self
 
 func shoot():
@@ -31,13 +38,16 @@ func _process(delta):
 		a = arrow.instantiate()
 		add_sibling(a)
 		a.global_position = global_position
+		a.direction = sprite.scale.x
 		print(attack)
-
+		
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		sprite.scale.x =abs(sprite.scale.x) * -1
+
 	if Input.is_action_pressed("right"):
 		sprite.scale.x =abs(sprite.scale.x) 
+
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -45,6 +55,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_height
+		jumping.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -72,12 +83,29 @@ func update_animation():
 			animation.play("Run")
 		else:
 			animation.play("Idle")
-		
 		if velocity.y < 0:
 			animation.play("Jump")
 		if velocity.y > 0:
 			animation.play("Fall")
 
+func take_damage(damage_amount : int):
+	if can_take_damage:
+		iframes()
+		
+		health -= damage_amount
+		
+		
+		if health <= 0:
+			die()
+
+func iframes():
+	can_take_damage = false
+	await  get_tree().create_timer(1).timeout
+	can_take_damage = true
+	
+
 
 func die():
+	death = true
 	GameManager.respawn_player()
+	

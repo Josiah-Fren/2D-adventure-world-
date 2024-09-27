@@ -813,7 +813,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_inccx"]
 radius = 15.0333
 
-[node name="Knight" type="CharacterBody2D"]
+[node name="Knight" type="CharacterBody2D" groups=["Heroes"]]
 script = ExtResource("1_w1gii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
